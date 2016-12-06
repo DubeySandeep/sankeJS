@@ -1,0 +1,11 @@
+var w = 20;
+var b = 25;
+function setup() {
+
+}
+
+function draw() {
+
+	ellipse(50,50,w,b);
+  
+}
