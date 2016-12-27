@@ -1,7 +1,32 @@
+//Moving sprites
+var s = new snake();
+var f = new fruit();
+var factor = 2 ; 
+var score = 0 ;
+
 function setup() {
+  createCanvas(800,600);
+	frameRate(24);
 
 }
 
 function draw() {
+    background(255,250,55);
+  	s.drawn();
+	f.drawn();
+s.update();
+	if(check() === 1)
+	{
+		f.x = int(random(0,80))*5;f.y =int(random(0,40))*5;
+		s.size +=1;
+		s.x.push(s.x[0]);s.y.push(s.y[0]);
+	}
+	s.motion();
+	
+
+
+  
 
 }
+
+

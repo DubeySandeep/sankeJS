@@ -41,7 +41,7 @@ function snake(){
 }*/
 
 	this.update = function(){
-		for(i = this.size ;i > 0; i--)
+		for(i = this.size ;i < 0; i--)
 		{
 			this.x[i] = this.x[i-1];
 			this.y[i] = this.y[i-1];
