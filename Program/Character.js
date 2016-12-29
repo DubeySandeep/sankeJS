@@ -1,18 +1,22 @@
 //This represtents the SNAKE////////////////////////////////
 function snake(){
 	vel = 5;
-	this.x = [0];           //Position X
-	this.y = [0];           //Position Y
+	this.x = [0,0];           //Position X
+	this.y = [0,0];           //Position Y
 	this.dx = 1*vel;      //Velocity along X
 	this.dy = 0*vel;      //Velocity along Y
-	this.size = 0;		  //Size of snake		
+	this.size = 1;		  //Size of snake		
 	//Draw the snake
 	this.drawn = function(){
-				for(i=0;i<=this.size;i++)
+				for(i=0;i<this.size;i++)
 				{
 					fill(43);
-					rect(this.x[i],this.y[i],5,5);
+					rect(this.x[i],this.y[i],6,6);
 				}
+				x1 = this.x[i];y1=this.y[i];
+				x2 = x1 + Math.abs(this.dy); y2 = y1 + Math.abs(this.dx);
+				x3 = x1 + (this.dy/vel)*3 - this.dx*2;y3 = y1 + (this.dx/vel)*3 - this.dy*2; 
+				triangle(x1,y1,x2,y2,x3,y3);
 							
 		}
 	//Motion helps in determining the Direction  
@@ -60,12 +64,12 @@ function snake(){
 function check() {
 	s.x[0] += s.dx*factor;
     s.y[0] += s.dy*factor;
-    s.x[0] %= 800;
+    s.x[0] %= x_pix;
     if(s.x[0] < 0)
-        s.x[0] = 800;
-	s.y[0] %= 600;
+        s.x[0] = x_pix;
+	s.y[0] %= y_pix;
     if(s.y[0] < 0)
-        s.y[0] = 600;
+        s.y[0] = y_pix;
 	
 	if(s.x[0] == f.x & s.y[0] == f.y )
 		return 1;
@@ -74,7 +78,6 @@ function check() {
 }
 //This represtents the FRUIT////////////////////////////////
 function fruit(){
-	vel = 5;
 	this.x = 100;
 	this.y = 100;
 	this.drawn = function(){
