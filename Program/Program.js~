@@ -16,8 +16,7 @@ function draw() {
     background(255,250,55);
 	fill(255,102,0);
 	noStroke();
-	//ellipse(x_pix/2,y_pix/2,200,200);
-  	rect(400,300,200,200);
+	ellipse(x_pix/2,y_pix/2,200,200);
   	s.drawn();
 	f.drawn();
 s.update();
